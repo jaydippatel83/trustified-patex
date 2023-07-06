@@ -15,6 +15,8 @@ Forgery Proof: Each certificate and badge will be an NFT on the FVM blockchain.
 
 Ownership: Ensures true ownership of digital badges and certificates.
 
+# Patex contract transaction 
+ => https://testnet.patexscan.io/tx/0xc39abe4d8a4e9d1995044667f5c92fff862dd5003e4709476b0158b5cb3834a0 
 
 # Built for
 
