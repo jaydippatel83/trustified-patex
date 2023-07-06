@@ -1,0 +1,56 @@
+{
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"sandboxnet": "access.sandboxnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "cfb82117b5df93e5d2e2c3304e9fdc786cb2bcc28fc984318af4d9af74274519"
+		}
+	}
+}
+
+
+// {
+// 	"eventId": 110,
+// 	"object": {
+// 		"tokenContract": "0xA7683AEDEcECc2C85EBB6D0f93a1AE852bBeA077",
+// 		"claimerAddress": "",
+// 		"ipfsurl": "https: //nftstorage.link/ipfs/bafyreiafl27atlcntpyy…hdoec7pxmhg4x6mtqwjvsuenp7p3okgrccq/metadata.json",
+// 		"chain": "mumbai",
+// 		"name": "",
+// 		"claimed": "No",
+// 		"claimerAddress": "",
+// 		"createdBy": "0xfB5C5f3d07ac7551c765E0dB128738755A1a7Efe",
+// 		"description": "sd sdffsd",
+// 		"eventId": 110,
+// 		"expireDate": "",
+// 		"ipfsurl": "https://nftstorage.link/ipfs/bafyreiafl27atlcntpyy5cwhdoec7pxmhg4x6mtqwjvsuenp7p3okgrccq/metadata.json",
+// 		"issueDate": "Tue May 02 2023 14:31:39 GMT+0530 (India Standard Time) ",
+// 		"name": "",
+// 		"platforms": [],
+// 		"position": "",
+// 		"templateId": "",
+// 		"title": "sasad",
+// 		"tokenContract": "0xA7683AEDEcECc2C85EBB6D0f93a1AE852bBeA077",
+// 		"txHash": "0xce6ab52bc0c1a91fcfc3d44a2df5eb5c4655188b475fe3c56670e4f4704ea717",
+// 		"type": "badge",
+// 		"uploadObj": "",
+// 	},
+// 	"tokenIds": [
+// 		1385,
+// 		1386,
+// 		1387,
+// 		1388,
+// 		1389,
+// 		1390,
+// 		1391,
+// 		1392,
+// 		1393,
+// 		1394
+// 	],
+// 	"type": "badge"
+// }
