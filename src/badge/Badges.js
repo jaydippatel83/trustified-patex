@@ -59,6 +59,7 @@ const Badges = () => {
       <div className="row">
         {badges.length !== 0 ? (
           badges.map((item, index) => {
+            console.log(item,"item");
             return (
               <div
                 key={index}

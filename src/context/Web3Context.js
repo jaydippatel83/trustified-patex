@@ -337,10 +337,6 @@ export const Web3ContextProvider = (props) => {
   ) {
     return new Promise(async (resolve, reject) => {
       try {
-        let [smartaccount, privyprovider] = await setupSmartAccount(
-          firebasedata.chain
-        );
-
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
 
@@ -352,46 +348,25 @@ export const Web3ContextProvider = (props) => {
 
         const balance = await trustifiedIssuerNFTContract.balanceOf(address);
 
-        console.log(balance,"balance");
-
         if (Number(balance) > 0) {
           const trustifiedContract = new ethers.Contract(
             trustifiedContracts[firebasedata.chain].trustified,
             trustifiedContractAbi.abi,
-            privyprovider
+            signer
           );
-console.log(trustifiedContract,"trustifiedContract");
-          const transactionMint =
-            await trustifiedContract.populateTransaction.bulkMintERC721(
-              mode == "claimurl"
-                ? parseInt(firebasedata.quantity)
-                : csvData.length,
-              checked
-            );
 
-            console.log(transactionMint,"transactionMint");
-
-          const tx1 = {
-            to: trustifiedContract.address,
-            data: transactionMint.data,
-          };
-
-          console.log(tx1,"tx1");
-
-          const txResponse = await smartaccount.sendTransaction({
-            transaction: tx1,
-          });
-
-          console.log(txResponse,"txResponse");
-          const txHash = await txResponse.wait();
-
-          console.log(txHash);
+          var transactionMint = await trustifiedContract.bulkMintERC721(
+            mode == "claimurl"
+              ? parseInt(firebasedata.quantity)
+              : csvData.length,
+            checked
+          ); // Bulk Mint NFT collection.
 
           await trustifiedContract.once(
             "TokensCreated",
             async (eventId, issuer) => {
+              let txm = await transactionMint.wait();
               let tokenIds = await trustifiedContract.getEventTokens(eventId);
-              console.log(tokenIds,"tokenIds");
               firebasedata.contract = trustifiedContract.address;
               firebasedata.userId = userId;
               firebasedata.eventId = parseInt(Number(eventId));
@@ -399,8 +374,8 @@ console.log(trustifiedContract,"trustifiedContract");
               firebasedata.image = `https://nftstorage.link/ipfs/${data.tokenUris[0]}/metadata.json`;
               firebasedata.templateId = "";
               firebasedata.Nontransferable = checked == true ? "on" : "off";
-              firebasedata.txHash = txHash.transactionHash;
-              firebasedata.createdBy = txHash.from;
+              firebasedata.txHash = txm.transactionHash;
+              firebasedata.createdBy = txm.from;
               firebasedata.platforms = [];
               firebasedata.mode = mode;
               firebasedata.airdropstatus = false;
@@ -428,8 +403,8 @@ console.log(trustifiedContract,"trustifiedContract");
                 issueDate: firebasedata.issueDate,
                 position: "",
                 uploadObj: "",
-                txHash: txHash.transactionHash,
-                createdBy: txHash.from,
+                txHash: txm.transactionHash,
+                createdBy: txm.from,
                 platforms: [],
               };
 

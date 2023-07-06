@@ -88,7 +88,7 @@ export const networkURL = {
   ethereumtestnet: "https://sepolia.etherscan.io/tx",
   gnosistestnet: "https://gnosisscan.io/tx",
   bsc: "https://testnet.bscscan.com/tx",
-  patex:'https://testnet.patexscan.io/tx'
+  patextestnet:'https://testnet.patexscan.io/tx'
 };
 
 export const networkIds = {
